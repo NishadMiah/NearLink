@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'controllers/discovery_controller.dart';
+import '../controllers/discovery_controller.dart';
 
 class DiscoveryScreen extends GetView<DiscoveryController> {
   const DiscoveryScreen({super.key});
