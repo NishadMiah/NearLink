@@ -8,10 +8,10 @@ import 'bindings/initial_binding.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Initialize Hive for offline database
   await Hive.initFlutter();
-  
+
   runApp(const MyApp());
 }
 

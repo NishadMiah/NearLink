@@ -2,19 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  static const Color primaryColor = Color(0xFF6366F1); // Indigo
-  static const Color secondaryColor = Color(0xFF8B5CF6); // Violet
-  static const Color scaffoldLight = Color(0xFFF8FAFC);
-  static const Color scaffoldDark = Color(0xFF0F172A); // Slate 900
-  static const Color cardLight = Colors.white;
-  static const Color cardDark = Color(0xFF1E293B); // Slate 800
+  static const Color primaryColor = Color(0xFF007AFF); // iOS Blue
+  static const Color secondaryColor = Color(0xFF5AC8FA); // Light Blue Accent
+  
+  // Light Theme Colors
+  static const Color scaffoldLight = Color(0xFFFFFFFF); // Pure White
+  static const Color cardLight = Color(0xFFF5F5F7); // Apple Light Grey
+  static const Color textLight = Color(0xFF1C1C1E); // Deep Charcoal
+  
+  // Dark Theme Colors
+  static const Color scaffoldDark = Color(0xFF000000); // Pure Black
+  static const Color cardDark = Color(0xFF1C1C1E); // Elevate Dark Grey
+  static const Color textDark = Color(0xFFFFFFFF); // Pure White
 
   static final lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
     primaryColor: primaryColor,
     scaffoldBackgroundColor: scaffoldLight,
-    textTheme: GoogleFonts.outfitTextTheme(),
+    textTheme: GoogleFonts.interTextTheme().apply(
+      bodyColor: textLight,
+      displayColor: textLight,
+    ),
     colorScheme: ColorScheme.fromSeed(
       seedColor: primaryColor,
       brightness: Brightness.light,
@@ -24,16 +33,17 @@ class AppTheme {
       backgroundColor: scaffoldLight,
       elevation: 0,
       centerTitle: true,
-      titleTextStyle: GoogleFonts.outfit(
-        color: const Color(0xFF1E293B),
-        fontSize: 20,
-        fontWeight: FontWeight.w700,
+      titleTextStyle: GoogleFonts.inter(
+        color: textLight,
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        letterSpacing: -0.5,
       ),
-      iconTheme: const IconThemeData(color: Color(0xFF1E293B)),
+      iconTheme: const IconThemeData(color: textLight),
     ),
     cardTheme: CardThemeData(
       elevation: 0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: cardLight,
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
     ),
@@ -41,10 +51,14 @@ class AppTheme {
       style: ElevatedButton.styleFrom(
         backgroundColor: primaryColor,
         foregroundColor: Colors.white,
-        minimumSize: const Size(double.infinity, 56),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        minimumSize: const Size(double.infinity, 54),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         elevation: 0,
-        textStyle: GoogleFonts.outfit(fontSize: 16, fontWeight: FontWeight.w600),
+        textStyle: GoogleFonts.inter(
+          fontSize: 16, 
+          fontWeight: FontWeight.w600,
+          letterSpacing: -0.3,
+        ),
       ),
     ),
   );
@@ -54,7 +68,10 @@ class AppTheme {
     brightness: Brightness.dark,
     primaryColor: primaryColor,
     scaffoldBackgroundColor: scaffoldDark,
-    textTheme: GoogleFonts.outfitTextTheme(ThemeData.dark().textTheme),
+    textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme).apply(
+      bodyColor: textDark,
+      displayColor: textDark,
+    ),
     colorScheme: ColorScheme.fromSeed(
       seedColor: primaryColor,
       brightness: Brightness.dark,
@@ -64,16 +81,17 @@ class AppTheme {
       backgroundColor: scaffoldDark,
       elevation: 0,
       centerTitle: true,
-      titleTextStyle: GoogleFonts.outfit(
-        color: Colors.white,
-        fontSize: 20,
-        fontWeight: FontWeight.w700,
+      titleTextStyle: GoogleFonts.inter(
+        color: textDark,
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        letterSpacing: -0.5,
       ),
-      iconTheme: const IconThemeData(color: Colors.white),
+      iconTheme: const IconThemeData(color: textDark),
     ),
     cardTheme: CardThemeData(
       elevation: 0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: cardDark,
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
     ),
@@ -81,10 +99,14 @@ class AppTheme {
       style: ElevatedButton.styleFrom(
         backgroundColor: primaryColor,
         foregroundColor: Colors.white,
-        minimumSize: const Size(double.infinity, 56),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        minimumSize: const Size(double.infinity, 54),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         elevation: 0,
-        textStyle: GoogleFonts.outfit(fontSize: 16, fontWeight: FontWeight.w600),
+        textStyle: GoogleFonts.inter(
+          fontSize: 16, 
+          fontWeight: FontWeight.w600,
+          letterSpacing: -0.3,
+        ),
       ),
     ),
   );
