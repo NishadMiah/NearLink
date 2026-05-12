@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:flutter_ble_peripheral/flutter_ble_peripheral.dart';
 import '../../domain/entities/device_entity.dart';
 import '../../domain/repositories/discovery_repository.dart';
 
@@ -41,13 +42,25 @@ class BleDiscoveryRepositoryImpl implements DiscoveryRepository {
 
   @override
   Future<void> startAdvertising(String deviceName) async {
-    // Note: flutter_blue_plus does not support BLE advertising directly.
-    // For production, flutter_ble_peripheral would be used here.
-    print("Started advertising as $deviceName");
+    final advertiseData = AdvertiseData(
+      serviceUuid: 'bf27730d-860a-4e09-889c-2d8b6a9e0fe7', // Unique UUID for our app
+      localName: deviceName,
+    );
+
+    final advertiseSettings = AdvertiseSettings(
+      advertiseMode: AdvertiseMode.advertiseModeBalanced,
+      txPowerLevel: AdvertiseTxPower.advertiseTxPowerMedium,
+      connectable: true,
+    );
+
+    await FlutterBlePeripheral().start(
+      advertiseData: advertiseData,
+      advertiseSettings: advertiseSettings,
+    );
   }
 
   @override
   Future<void> stopAdvertising() async {
-    print("Stopped advertising");
+    await FlutterBlePeripheral().stop();
   }
 }

@@ -52,7 +52,7 @@ class DiscoveryScreen extends GetView<DiscoveryController> {
                       subtitle: Text(device.id),
                       trailing: ElevatedButton(
                         onPressed: () {
-                          // TODO: Implement connect logic
+                          controller.connectToDevice(device.id);
                         },
                         child: const Text('Connect'),
                       ),

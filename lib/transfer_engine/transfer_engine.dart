@@ -18,12 +18,7 @@ class TransferEngine extends GetxService {
     while (bytesSent < length) {
       final chunk = await randomAccessFile.read(chunkSize);
       
-      // In a real implementation, wrap chunk with PacketFormatter
-      // and handle pause/resume logic
-      
-      // For architecture demo:
-      // _socketManager.socket!.add(chunk);
-      // await _socketManager.socket!.flush();
+      _socketManager.sendFileChunk(chunk);
       
       bytesSent += chunk.length;
       _progressController.add(bytesSent / length);

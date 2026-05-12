@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
 import '../services/permission_service.dart';
 import '../domain/repositories/discovery_repository.dart';
+import '../domain/repositories/connection_repository.dart';
 import '../data/repositories_impl/ble_discovery_repository_impl.dart';
+import '../data/repositories_impl/wifi_direct_connection_repository_impl.dart';
 import '../presentation/features/discovery/controllers/discovery_controller.dart';
 import '../sockets/socket_manager.dart';
 import '../transfer_engine/transfer_engine.dart';
@@ -20,6 +22,7 @@ class InitialBinding extends Bindings {
 
     // Repositories
     Get.lazyPut<DiscoveryRepository>(() => BleDiscoveryRepositoryImpl(), fenix: true);
+    Get.lazyPut<ConnectionRepository>(() => WifiDirectConnectionRepositoryImpl(), fenix: true);
 
     // Controllers
     Get.lazyPut(() => DiscoveryController(discoveryRepository: Get.find<DiscoveryRepository>()));
