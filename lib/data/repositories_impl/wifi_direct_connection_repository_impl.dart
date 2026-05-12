@@ -23,7 +23,7 @@ class WifiDirectConnectionRepositoryImpl implements ConnectionRepository {
         if (info.isGroupOwner) {
           _socketManager.startServer('0.0.0.0', 4000);
         } else {
-          _socketManager.connectToServer(info.groupOwnerAddress ?? '', 4000);
+          _socketManager.connectToServer(info.groupOwnerAddress, 4000);
         }
       } else {
         _statusController.add(false);
@@ -37,7 +37,7 @@ class WifiDirectConnectionRepositoryImpl implements ConnectionRepository {
 
   @override
   Future<bool> connectToDevice(String deviceAddress) async {
-    return await _p2p.connect(deviceAddress) ?? false;
+    return await _p2p.connect(deviceAddress);
   }
 
   @override

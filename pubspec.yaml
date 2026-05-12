@@ -47,6 +47,9 @@ dependencies:
   flutter_p2p_connection: ^2.1.1
   flutter_blue_plus_winrt: ^0.0.20
   flutter_ble_peripheral: ^2.1.0
+  google_fonts: ^8.1.0
+  animate_do: ^5.1.0
+  flutter_animate: ^4.5.2
 
 dev_dependencies:
   flutter_test:

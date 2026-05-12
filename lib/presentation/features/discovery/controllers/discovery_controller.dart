@@ -11,15 +11,22 @@ class DiscoveryController extends GetxController {
 
   var devices = <DeviceEntity>[].obs;
   var isScanning = false.obs;
+  var deviceName = "Unknown Device".obs;
 
   DiscoveryController({required this.discoveryRepository});
 
   @override
   void onInit() {
     super.onInit();
+    _loadDeviceName();
     discoveryRepository.nearbyDevices.listen((deviceList) {
       devices.value = deviceList;
     });
+  }
+
+  Future<void> _loadDeviceName() async {
+    // This is a placeholder, usually fetched from a platform plugin
+    deviceName.value = "My NearLink Device";
   }
 
   Future<void> scanForDevices() async {
