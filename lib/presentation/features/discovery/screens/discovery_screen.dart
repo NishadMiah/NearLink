@@ -481,7 +481,7 @@ class DiscoveryScreen extends GetView<DiscoveryController> {
                   borderRadius: BorderRadius.circular(24),
                 ),
                 child: QrImageView(
-                  data: 'NEARLINK:${controller.deviceId.value}',
+                  data: controller.qrPayload,
                   version: QrVersions.auto,
                   size: 200.0,
                   eyeStyle: const QrEyeStyle(
